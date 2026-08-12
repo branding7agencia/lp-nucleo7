@@ -26,6 +26,268 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
+  body{background:var(--black);color:var(--cream);font-family:'Inter',sans-serif;line-height:1.65;font-size:16.5px;-webkit-font-smoothing:antialiased}
+  .display{font-family:'Anton',Impact,sans-serif;font-weight:400;letter-spacing:1px;line-height:1.08;word-spacing:2px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  a{color:inherit;text-decoration:none}
+  .btn{display:inline-block;background:var(--orange);color:var(--black);font-family:'Inter',sans-serif;font-weight:800;
+    font-size:16px;padding:16px 32px;border-radius:8px;letter-spacing:.2px;transition:transform .15s,filter .15s}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+  .btn-ghost{background:transparent;border:1px solid var(--line);color:var(--cream)}
+  .tag{font-family:'Inter';font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.1em;
+    color:var(--orange)}
+  .claquete{height:12px;background:repeating-linear-gradient(115deg,var(--cream) 0 14px,var(--black) 14px 28px)}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(11,11,12,.85);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;max-width:1080px;margin:0 auto}
+  .logo{font-family:'Anton',sans-serif;font-size:24px}
+  .logo span{color:var(--orange)}
+
+  .hero{padding:70px 0 60px;text-align:center;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(600px 300px at 50% -10%, rgba(255,98,0,.18), transparent 70%);pointer-events:none}
+  .hero h1{font-size:clamp(38px,7vw,72px);max-width:900px;margin:0 auto 24px}
+  .hero h1 .o{color:var(--orange)}
+  .hero p.sub{font-size:clamp(17px,2.4vw,22px);color:var(--dim);max-width:640px;margin:0 auto 36px}
+  .hero .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .hero .micro{margin-top:18px;font-size:13px;color:var(--dimmer)}
+
+  section{padding:70px 0}
+  .sec-head{text-align:center;max-width:720px;margin:0 auto 44px}
+  .sec-head h2{font-size:clamp(28px,4.5vw,44px);margin-bottom:14px}
+  .sec-head p{color:var(--dim);font-size:17px}
+
+  .grid{display:grid;gap:18px}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px}
+  .card h3{font-family:'Inter',sans-serif;font-weight:800;font-size:20px;line-height:1.25;letter-spacing:-0.2px;margin-bottom:10px}
+  .card p{color:var(--dim);font-size:15.5px;line-height:1.65}
+  .card .ico{font-size:30px;margin-bottom:14px;display:block}
+
+  .price-grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start}
+  .price{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:30px;position:relative}
+  .price.pop{border-color:var(--orange);box-shadow:0 0 0 1px var(--orange)}
+  .price .badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--orange);
+    color:var(--black);font-family:'Anton';font-size:12px;padding:5px 14px;border-radius:99px;letter-spacing:.06em}
+  .price h3{font-family:'Inter',sans-serif;font-weight:800;font-size:22px;letter-spacing:-0.2px;margin-bottom:4px}
+  .price .val{font-family:'Anton';font-size:44px;margin:12px 0 2px}
+  .price .val small{font-family:'Inter';font-size:14px;color:var(--dim);font-weight:500}
+  .price ul{list-style:none;margin:20px 0 26px}
+  .price li{padding:8px 0;border-bottom:1px dashed var(--line);font-size:14.5px;color:var(--dim)}
+  .price li b{color:var(--cream)}
+
+  .faq details{border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:12px;background:var(--panel)}
+  .faq summary{cursor:pointer;font-weight:700;font-size:16px;list-style:none}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";float:right;color:var(--orange);font-family:'Anton';font-size:22px;line-height:1}
+  .faq details[open] summary::after{content:"−"}
+  .faq p{color:var(--dim);margin-top:12px;font-size:15px}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;text-align:center;color:var(--dimmer);font-size:14px}
+</style>
+</head>
+<body>
+<div class="claquete"></div>
+
+<header>
+  <div class="nav">
+    <div class="logo">NÚCLEO<span>7</span></div>
+    <a href="#planos" class="btn" style="font-size:15px;padding:10px 20px">Começar agora</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="tag">Central de Treinamento e Posicionamento Digital</p>
+    <h1 class="display">
+      Aprenda a atrair com <span class="o">roteiros virais</span> e treine para <span class="o">converter</span> a demanda em vendas.
+    </h1>
+    <p class="sub">
+      Seu time aprende aqui, neste sistema, tudo que precisa para atrair e vender:
+      simulador de atendimento com IA, geração de roteiros e aulas gravadas — num lugar só.
+    </p>
+    <div class="cta-row">
+      <a href="#planos" class="btn">Quero treinar meu time</a>
+      <a href="#como" class="btn btn-ghost">Ver como funciona</a>
+    </div>
+
+    <div class="kpis" style="display:flex;gap:36px;justify-content:center;flex-wrap:wrap;margin-top:48px">
+      <div class="kpi"><div class="n" style="font-family:'Anton';font-size:34px">3</div><div class="l" style="font-size:13px;color:var(--dimmer);text-transform:uppercase;letter-spacing:.08em">Módulos num sistema só</div></div>
+      <div class="kpi"><div class="n" style="font-family:'Anton';font-size:34px">IA</div><div class="l" style="font-size:13px;color:var(--dimmer);text-transform:uppercase;letter-spacing:.08em">Simulador de cliente real</div></div>
+      <div class="kpi"><div class="n" style="font-family:'Anton';font-size:34px">24/7</div><div class="l" style="font-size:13px;color:var(--dimmer);text-transform:uppercase;letter-spacing:.08em">Treino no ritmo do time</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <p class="eyebrow tag" style="text-align:center;margin-bottom:12px">O problema</p>
+    <h2 class="tt display" style="font-size:clamp(28px,5vw,46px);text-align:center;max-width:760px;margin:0 auto 16px">Sua equipe não perde venda por falta de lead. Perde por <span style="color:var(--orange)">não saber atrair e conduzir</span>.</h2>
+    <p class="lead" style="text-align:center;color:var(--dim);max-width:640px;margin:0 auto 44px;font-size:17px">
+      Anúncio caro traz gente, mas o time trava no atendimento. E o conteúdo que deveria atrair
+      sai genérico, igual ao do concorrente. A Núcleo7 resolve as duas pontas: ensina a atrair com
+      posicionamento e treina o time para converter quem chega.
+    </p>
+  </div>
+</section>
+
+<section class="blk" id="como" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <p class="eyebrow tag" style="text-align:center;margin-bottom:12px">O que você ganha</p>
+    <h2 class="tt display" style="font-size:clamp(28px,5vw,46px);text-align:center;max-width:760px;margin:0 auto 16px">Tudo num acesso só, trabalhando <span style="color:var(--orange)">junto</span></h2>
+    <p class="lead" style="text-align:center;color:var(--dim);max-width:640px;margin:0 auto 44px;font-size:17px">Do topo do funil (atrair) até o fechamento (converter), sem trocar de ferramenta.</p>
+
+    <div class="grid g3">
+      <div class="card">
+        <span class="ico">🎯</span>
+        <h3>Treinamento de Vendas</h3>
+        <p>Simulador com IA que atua como cliente real: irritado, indeciso, que só quer preço, do concorrente. Seu time treina a abordagem quantas vezes precisar, com nota e ranking.</p>
+      </div>
+      <div class="card">
+        <span class="ico">🎬</span>
+        <h3>Roteiro7 — Roteiros Virais</h3>
+        <p>Gera roteiros de vídeo curto que partem do que o especialista defende de verdade. Tema, tese e decupagem cena a cena, prontos para gravar com o celular e gerar discussão.</p>
+      </div>
+      <div class="card">
+        <span class="ico">🎓</span>
+        <h3>Aulas Gravadas</h3>
+        <p>Trilha de aulas em vídeo com quiz ao final de cada uma. A próxima aula só abre depois que o aluno acerta — ninguém avança sem aprender de verdade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <p class="eyebrow tag" style="text-align:center;margin-bottom:12px">Simples de usar</p>
+    <h2 class="tt display" style="font-size:clamp(28px,5vw,46px);text-align:center;max-width:760px;margin:0 auto 16px">Simples de usar, de <span style="color:var(--orange)">qualquer lugar</span></h2>
+    <p class="lead" style="text-align:center;color:var(--dim);max-width:640px;margin:0 auto 44px;font-size:17px">Funciona no computador e no celular. Seu time treina no intervalo, em casa ou na loja.</p>
+
+    <div class="grid g3">
+      <div class="card"><h3>1 · Entra</h3><p>Cada pessoa recebe o próprio acesso, com e-mail e senha.</p></div>
+      <div class="card"><h3>2 · Treina</h3><p>Escolhe o tipo de cliente, conversa com a IA e recebe a nota na hora.</p></div>
+      <div class="card"><h3>3 · Evolui</h3><p>Ranking, conquistas e relatórios mostram quem está melhorando de verdade.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="planos" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <p class="eyebrow tag" style="text-align:center;margin-bottom:12px">Planos</p>
+    <h2 class="tt display" style="font-size:clamp(28px,5vw,46px);text-align:center;max-width:760px;margin:0 auto 16px">Escolha o tamanho do seu <span style="color:var(--orange)">time</span></h2>
+    <p class="lead" style="text-align:center;color:var(--dim);max-width:640px;margin:0 auto 44px;font-size:17px">Sem fidelidade. Cancele quando quiser.</p>
+
+    <div class="price-grid">
+      <div class="price">
+        <h3>Starter</h3>
+        <p style="color:var(--dim);font-size:14px">Para quem está começando</p>
+        <div class="val">R$ 47,90<small>/mês</small></div>
+        <ul>
+          <li><b>2</b> acessos</li>
+          <li>Simulador de vendas com IA</li>
+          <li>Roteiro7 com limite mensal</li>
+          <li>Ranking e conquistas</li>
+        </ul>
+        <a href="#" id="btn-starter" class="btn btn-ghost" style="width:100%;text-align:center">Assinar Starter</a>
+      </div>
+
+      <div class="price pop">
+        <div class="badge">Mais escolhido</div>
+        <h3>Growth</h3>
+        <p style="color:var(--dim);font-size:14px">Para times que já vendem</p>
+        <div class="val">R$ 297<small>/mês</small></div>
+        <ul>
+          <li><b>5</b> acessos</li>
+          <li>Tudo do Starter</li>
+          <li>Roteiro7 com mais volume</li>
+          <li>Módulo de Aulas gravadas</li>
+          <li>Relatórios de evolução</li>
+        </ul>
+        <a href="#" id="btn-growth" class="btn" style="width:100%;text-align:center">Assinar Growth</a>
+      </div>
+
+      <div class="price">
+        <h3>Sob medida</h3>
+        <p style="color:var(--dim);font-size:14px">Times grandes e franquias</p>
+        <div class="val">Vamos<br><small style="font-size:16px">conversar</small></div>
+        <ul>
+          <li>Acessos ilimitados</li>
+          <li>Conteúdo e treinos sob medida</li>
+          <li>Onboarding com a equipe</li>
+          <li>Suporte prioritário</li>
+        </ul>
+        <a href="#" id="btn-contato" class="btn btn-ghost" style="width:100%;text-align:center">Falar com a Núcleo7</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blk faq" style="border-top:1px solid var(--line)">
+  <div class="wrap" style="max-width:760px">
+    <p class="eyebrow tag" style="text-align:center;margin-bottom:12px">Dúvidas</p>
+    <h2 class="tt display" style="font-size:clamp(28px,5vw,46px);text-align:center;margin:0 auto 34px">Perguntas <span style="color:var(--orange)">frequentes</span></h2>
+
+    <details><summary>Preciso instalar alguma coisa?</summary>
+      <p>Não. É tudo pelo navegador, no computador ou no celular. Você recebe o acesso e já começa.</p></details>
+    <details><summary>Quantas pessoas do meu time podem usar?</summary>
+      <p>Depende do plano: o Starter dá 2 acessos e o Growth 5. Cada pessoa entra com o próprio login, e você acompanha a evolução de cada uma.</p></details>
+    <details><summary>Funciona para o meu segmento?</summary>
+      <p>Sim. Você descreve seu negócio e seu público, e tanto o simulador quanto os roteiros se ajustam ao seu contexto.</p></details>
+    <details><summary>Preciso saber gravar vídeo para usar o Roteiro7?</summary>
+      <p>Não. Ele entrega o roteiro pronto, cena a cena, para você gravar com o celular.</p></details>
+    <details><summary>Tem fidelidade?</summary>
+      <p>Não. É mensal e você cancela quando quiser.</p></details>
+  </div>
+</section>
+
+<section class="blk final" style="border-top:1px solid var(--line);text-align:center">
+  <div class="wrap">
+    <h2 class="tt display" style="font-size:clamp(28px,5vw,46px);margin:0 auto 18px">Comece hoje a treinar seu time para <span style="color:var(--orange)">vender mais</span></h2>
+    <p class="lead" style="text-align:center;color:var(--dim);max-width:640px;margin:0 auto 30px;font-size:17px">Atraia com roteiros que geram conversa. Converta com um time preparado.</p>
+    <a href="#planos" class="btn">Quero começar agora</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo" style="font-family:'Anton';font-size:20px;margin-bottom:8px">NÚCLEO<span style="color:var(--orange)">7</span></div>
+    <p>Um produto Branding7 · Núcleo7 &copy; 2026</p>
+  </div>
+</footer>
+
+<div class="claquete"></div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Núcleo7 — Treine seu time para atrair com roteiros virais e converter em vendas</title>
+<meta name="description" content="A central de treinamento de vendas com IA da Núcleo7: simulador de atendimento, geração de roteiros virais e aulas gravadas. Seu time aprende tudo que precisa para atrair e vender." />
+<meta name="robots" content="index, follow" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Núcleo7 — Atraia com roteiros virais. Treine para converter." />
+<meta property="og:description" content="Simulador de vendas com IA + geração de roteiros virais + aulas gravadas, num sistema só. Prepare seu time para atrair a demanda e transformar em venda." />
+<meta property="og:locale" content="pt_BR" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --orange:#FF6200; --blue:#1B3A6B; --black:#0B0B0C; --panel:#141416;
+    --panel2:#1C1C20; --line:#2A2A2F; --cream:#F2EFE9; --dim:#A8A49C; --dimmer:#6E6A63;
+    --green:#3FBF7F;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
   body{background:var(--black);color:var(--cream);font-family:'Inter',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
   .display{font-family:'Anton',Impact,sans-serif;font-weight:400;letter-spacing:.5px;line-height:.95}
   .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
