@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>Abrindo o WhatsApp…</title>
+<style>
+  html,body{margin:0;height:100%;background:#0a0a0a;color:#f5f5f5;font-family:system-ui,-apple-system,sans-serif}
+  main{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:16px;text-align:center}
+  a{background:#25d366;color:#0a0a0a;font-weight:700;text-decoration:none;padding:14px 22px;border-radius:999px}
+</style>
+<script>
+  // ---- Configuração ----
+  var PIXEL_ID = "1631632638348274";
+  var EVENTO   = "Contact"; // evento padrão da Meta disparado antes de redirecionar
+  var WHATSAPP = "https://wa.me/553192022468?text=" + encodeURIComponent(
+    "Olá, Juliana! Vim pelo Instagram e quero saber mais sobre o Permanente Afro e agendar um horário."
+  );
+  var ESPERA_MS = 600; // tempo para o pixel enviar o evento antes de sair da página
+  // ----------------------
+
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+  // O fbclid da URL é lido automaticamente pelo pixel (cookie _fbc), mantendo a atribuição do anúncio.
+  fbq('init', PIXEL_ID);
+  fbq('track', 'PageView');
+  fbq('track', EVENTO, { content_name: 'Permanente Afro - WhatsApp' });
+
+  var foi = false;
+  function ir(){ if(foi) return; foi = true; location.replace(WHATSAPP); }
+  setTimeout(ir, ESPERA_MS);
+  document.addEventListener('DOMContentLoaded', function(){ document.getElementById('btn').href = WHATSAPP; });
+</script>
+</head>
+<body>
+<main>
+  <p>Abrindo o WhatsApp da Juliana Matos…</p>
+  <a id="btn" href="https://wa.me/553192022468">Toque aqui se não abrir</a>
+</main>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1631632638348274&ev=Contact&noscript=1"/></noscript>
+</body>
+</html>
